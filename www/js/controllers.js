@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
   $scope.showConfirm = function() {
     $ionicPopup.alert({
       title: 'Verzending succesvol',
-      template: '<p>U krijgt zo snel mogelijk een bevestiging van de afspraak.</p><p>Neem uw identiteitsbewijs, zorgverzekeringspas en eventuele hulpmiddelen mee naar deze afspraak.</p>'
+      template: '<p>Uw afspraakverzoek is verzonden, wij bellen u binnen 2 werkdagen voor het maken van een afspraak.</p><p>Neem uw identiteitsbewijs, zorgverzekeringspas en eventuele hulpmiddelen mee naar deze afspraak.</p>'
     }).then(function() {
       $ionicHistory.nextViewOptions({
         disableAnimate: true,
