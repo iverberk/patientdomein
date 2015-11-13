@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
           if (filteredItems.length == Chats.all().length) {
             $scope.dsply = false
           } else {
-            $scope.dsply = true;  
+            $scope.dsply = true;
           }
           $scope.chats = filteredItems;
         },
@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
   $scope.showConfirm = function() {
     $ionicPopup.alert({
       title: 'Verzending succesvol',
-      template: 'Uw afspraak bericht is succesvol verzonden. U krijgt binnenkort een bevestiging hiervan.'
+      template: '<p>U krijgt zo snel mogelijk een bevestiging van de afspraak.</p><p>Neem uw identiteitsbewijs, zorgverzekeringspas en eventuele hulpmiddelen mee naar deze afspraak.</p>'
     }).then(function() {
       $ionicHistory.nextViewOptions({
         disableAnimate: true,
