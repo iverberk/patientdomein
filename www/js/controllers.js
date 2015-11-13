@@ -11,6 +11,11 @@ angular.module('starter.controllers', [])
       filterBarInstance = $ionicFilterBar.show({
         items: $scope.chats,
         update: function (filteredItems, filterText) {
+          if (filteredItems.length == Chats.all().length) {
+            $scope.dsply = false
+          } else {
+            $scope.dsply = true;  
+          }
           $scope.chats = filteredItems;
         },
         filterProperties: 'name'
@@ -19,26 +24,43 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('Dash2Ctrl', function($scope, Chats2, $ionicFilterBar) {
+.controller('Dash2Ctrl', function($scope, $ionicModal, $ionicFilterBar) {
 
-  $scope.chats = Chats2.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  
+
+})
+
+.controller('Dash3Ctrl', function($scope, $ionicPopover) {
+
+  // .fromTemplateUrl() method
+  $ionicPopover.fromTemplateUrl('templates/popover.html', {
+    scope: $scope,
+    backdropClickToClose: false
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
   };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 
-  $scope.showFilterBar = function () {
-      filterBarInstance = $ionicFilterBar.show({
-        items: $scope.chats,
-        update: function (filteredItems, filterText) {
-          $scope.chats = filteredItems;
-        },
-        filterProperties: 'name'
-      });
-    };
-
-})
-
-.controller('Dash3Ctrl', function($scope, $ionicFilterBar) {
+  
 
 })
 
