@@ -87,4 +87,52 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.factory('Transactions', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var transactions = [{
+    id: 0,
+    name: 'Praktijk de kromme knie',
+    date: '13 nov 2015',
+    logo: 'img/krommeknie.jpg',
+    reden: 'Nog steeds pijn aan knie!',
+    urgentie: 'Hoog',
+    medicalBackground: ''
+  }, {
+    id: 1,
+    name: 'Praktijk de kromme knie',
+    date: '6 nov 2015',
+    logo: 'img/krommeknie.jpg',
+    reden: 'Mijn knie doet pijn.',
+    urgentie: 'Normaal',
+    medicalBackground: ''
+  }, {
+    id: 2,
+    name: 'Praktijk tandplak',
+    date: '22 aug 2015',
+    logo: 'img/tandplak.png',
+    reden: 'Verstandskies verdwenen!',
+    urgentie: 'Normaal',
+    medicalBackground: ''
+  }];
+
+  return {
+    all: function() {
+      return transactions;
+    },
+    remove: function(transaction) {
+      transactions.splice(transactions.indexOf(transaction), 1);
+    },
+    get: function(transactionId) {
+      for (var i = 0; i < transactions.length; i++) {
+        if (transactions[i].id === parseInt(transactionId)) {
+          return transactions[i];
+        }
+      }
+      return null;
+    }
+  };
 });

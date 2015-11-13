@@ -42,7 +42,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChatsCtrl', function($scope, Chats, $ionicFilterBar) {
+.controller('ChatsCtrl', function($scope, Transactions, $ionicFilterBar) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -51,24 +51,24 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  $scope.transactions = Transactions.all();
+  $scope.remove = function(transaction) {
+    Transactions.remove(transaction);
   };
 
   $scope.showFilterBar = function () {
       filterBarInstance = $ionicFilterBar.show({
-        items: $scope.chats,
+        items: $scope.transactions,
         update: function (filteredItems, filterText) {
-          $scope.chats = filteredItems;
+          $scope.transactions = filteredItems;
         },
         filterProperties: 'name'
       });
     };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams, Transactions) {
+  $scope.transaction = Transactions.get($stateParams.transactionId);
 })
 
 .controller('AccountCtrl', function($scope) {
