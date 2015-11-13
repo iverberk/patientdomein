@@ -95,22 +95,30 @@ angular.module('starter.services', [])
   // Some fake testing data
   var transactions = [{
     id: 0,
-    name: 'Praktijk de kromme knie',
+    name: 'Gidopraktor',
     date: '13 nov 2015',
+    logo: 'img/gidopractor.jpg',
+    reden: 'Na hardlopen last van rug',
+    urgentie: 'Normaal',
+    medicalBackground: ''
+  },{
+    id: 1,
+    name: 'Praktijk de kromme knie',
+    date: '1 nov 2015',
     logo: 'img/krommeknie.jpg',
     reden: 'Nog steeds pijn aan knie!',
     urgentie: 'Hoog',
     medicalBackground: ''
   }, {
-    id: 1,
+    id: 2,
     name: 'Praktijk de kromme knie',
-    date: '6 nov 2015',
+    date: '24 okt 2015',
     logo: 'img/krommeknie.jpg',
     reden: 'Mijn knie doet pijn.',
     urgentie: 'Normaal',
     medicalBackground: ''
   }, {
-    id: 2,
+    id: 3,
     name: 'Praktijk tandplak',
     date: '22 aug 2015',
     logo: 'img/tandplak.png',
