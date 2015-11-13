@@ -74,6 +74,15 @@ angular.module('starter.controllers', [])
   $scope.transaction = Transactions.get($stateParams.transactionId);
 })
 
+.controller('SignInCtrl', function($scope, $state) {
+  
+  $scope.signIn = function(user) {
+    console.log('Sign-In', user);
+    $state.go('tab.dash');
+  };
+  
+})
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
