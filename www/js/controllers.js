@@ -26,41 +26,22 @@ angular.module('starter.controllers', [])
 
 .controller('Dash2Ctrl', function($scope, $ionicModal, $ionicFilterBar) {
 
-  
-
 })
 
-.controller('Dash3Ctrl', function($scope, $ionicPopover) {
+.controller('Dash3Ctrl', function($scope, $state, $ionicPopup, $ionicHistory) {
+  $scope.showConfirm = function() {
+    $ionicPopup.alert({
+      title: 'Verzending succesvol',
+      template: 'Uw afspraak bericht is succesvol verzonden. U krijgt binnenkort een bevestiging hiervan.'
+    }).then(function() {
+      $ionicHistory.nextViewOptions({
+        disableAnimate: true,
+        disableBack: true
+      });
+      $state.transitionTo('tab.dash');
+    });
+ };
 
-  // .fromTemplateUrl() method
-  $ionicPopover.fromTemplateUrl('templates/popover.html', {
-    scope: $scope,
-    backdropClickToClose: false
-  }).then(function(popover) {
-    $scope.popover = popover;
-  });
-
-
-  $scope.openPopover = function($event) {
-    $scope.popover.show($event);
-  };
-  $scope.closePopover = function() {
-    $scope.popover.hide();
-  };
-  //Cleanup the popover when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.popover.remove();
-  });
-  // Execute action on hide popover
-  $scope.$on('popover.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove popover
-  $scope.$on('popover.removed', function() {
-    // Execute action
-  });
-
-  
 
 })
 
